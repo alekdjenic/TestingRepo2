@@ -1,0 +1,17 @@
+trigger: none
+pr: none
+
+pool: Default
+
+resources:
+  repositories:
+  - repository: sameRepoReadOnly
+    type: github
+    endpoint: PatReadOnlyAleDjen
+    name: alekdjenic/TestingRepo2
+    ref: refs/heads/main
+
+steps:
+- checkout: self
+- checkout: sameRepoReadOnly
+- pwsh: Write-Host "self plus alias probe"
